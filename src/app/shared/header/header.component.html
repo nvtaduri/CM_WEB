@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg border-bottom site-header">
+  <i class="fa fa-bars" aria-hidden="true" id="menu-toggle"></i>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+    <!-- <li class="nav-item dropdown ml-5">
+      <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="badge">{{ notificationsCount }}</span>
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+      </a>
+      <div class="dropdown-menu">
+        <ul class="list-group" *ngFor="let item of notifications">
+          <li class="list-group-item">{{ item.notification }}</li>
+        </ul>
+        <div class="text-center" *ngIf="notifications.length <= 0">
+          No new notificaions.
+        </div>
+        <a class="btn btn-view" type="submit" (click)="viewNotifications()">View All</a>
+      </div>
+    </li> -->
+  </ul>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <!-- <li class="nav-item mr-5">
+        <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active" ><i class="fa fa-home" aria-hidden="true"></i> </a>
+      </li> -->
+      <!-- <li class="nav-item dropdown mr-5">
+        <a class="nav-link lan" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-flag-o" aria-hidden="true"></i><span class="ml-2">English</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" *ngFor="let item of languages" (click)="switchLanguage(item)"
+            [ngClass]="{'lanActive': item.code == activeLanguage}">{{ item.language }}</a>
+        </div>
+      </li> -->
+      <!-- <li class="nav-item dropdown mr-5" *ngIf="!hideSwitch">
+        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-reply" aria-hidden="true"></i><span class="ml-2">Switch</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" *ngFor="let item of rolesArr" (click)="changeRole(item)"
+            [ngClass]="{'roleActive': item == role}">{{ item }}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown mr-5" *ngIf="hideSwitch">
+        <a class="nav-link back" [routerLink]="['/admin/dashboard']" aria-haspopup="true" aria-expanded="true">
+          <i class="fa fa-reply" aria-hidden="true"></i><span class="ml-2">Back</span>
+        </a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <!-- <img src="../../assets/images/{{ role }}-avatar.png" alt="_profileImg" class="rounded-circle" width="30" height="30"> -->
+          <i class="fa fa-user-circle-o user" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <!-- <a class="dropdown-item" routerLink="/{{ role }}/profile" [ngClass]="{'roleActive': href == '/admin/profile'}">Account</a>
+          <a class="dropdown-item" [routerLink]="['/settings/siteinfo']" *ngIf="role == 'admin'"
+          [ngClass]="{'roleActive': href == '/settings/siteinfo'}">Settings</a> -->
+          <a class="dropdown-item" (click)="logOut()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

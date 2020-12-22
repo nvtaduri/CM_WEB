@@ -1,0 +1,79 @@
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading"><i class="fa fa-home"></i> CM</div>
+    <!-- <div class="card bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <i class="fa fa-user-circle-o user list-group-item list-group-item-action bg-light" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-6 ml-3">
+            <h3>{{ username }}</h3>
+            <p>{{ role }}</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="fa fa-search"></i>
+        </span>
+        <span>
+          <input type="text" name="task" [(ngModel)]="filterQuery" placeholder="Quick Search" autocomplete="off"
+          (keyup)="searchModule()">
+        </span>
+      </div>
+    </div> -->
+
+    <!-- For Back to Dashboard -->
+    <div class="back-btn" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
+      href == '/settings/blockchain')">
+      <button class="btn btn-back" (click)="backTohome()">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back To Home
+      </button>
+    </div>
+
+    <!-- For admin -->
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href != '/settings/siteinfo' && href != '/settings/roleprivileges' &&
+      href != '/settings/blockchain')">
+      <a *ngFor="let item of adminMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == item.url && item.name != ''}">
+        <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
+      </a>
+    </div>
+
+    <!-- For User -->
+    <div class="list-group list-group-flush list" *ngIf="role == 'user' && (href != '/settings/siteinfo' && href != '/settings/roleprivileges' &&
+      href != '/settings/blockchain')">
+      <a *ngFor="let item of userMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == item.url && item.name != ''}">
+        <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
+      </a>
+    </div>
+
+    <!-- For Manager -->
+    <div class="list-group list-group-flush list" *ngIf="role == 'manager' && (href != '/settings/siteinfo' && href != '/settings/roleprivileges' &&
+      href != '/settings/blockchain')">
+      <a *ngFor="let item of managerMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == item.url && item.name != ''}">
+        <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
+      </a>
+    </div>
+
+    <!-- For Settings -->
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
+      href == '/settings/blockchain')">
+      <a *ngFor="let item of settingsMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == item.url}">
+        <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
+      </a>
+    </div>
+
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+</div>
+<!-- #wrapper -->
