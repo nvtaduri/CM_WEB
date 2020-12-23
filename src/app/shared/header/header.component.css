@@ -10,7 +10,7 @@
 
 a {
   cursor: pointer;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
 }
 
 .back {
@@ -31,11 +31,11 @@ a {
 }
 
 .roleActive {
-  color: #1668af;
+  color: #81a955;
 }
 
 .lanActive {
-  color: #1668af;
+  color: #81a955;
 }
 
 .badge {
@@ -49,15 +49,15 @@ a {
 }
 
 .site-header {
-  background-color: #1668af;
+  background-color: #81a955;
 }
 
 .btn-view {
   margin-left: 32px;
-  border: 1px solid #1668af;
+  border: 1px solid #81a955;
 }
 
 .btn-view:hover {
- color: white;
- background-color: #1668af;
+  color: white;
+  background-color: #81a955;
 }

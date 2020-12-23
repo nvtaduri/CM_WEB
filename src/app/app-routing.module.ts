@@ -1,34 +1,31 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule, ActivatedRoute } from "@angular/router";
+import { CreateRFCComponent } from "./core/admin/create-rfc/create-rfc.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 // import { CommonComponent } from './common/common.component';
-import { LoginComponent } from './login/login.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { LoginComponent } from "./login/login.component";
+import { NotFoundComponent } from "./shared/not-found/not-found.component";
 // import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-
 
 const routes: Routes = [
   {
-    path: 'admin/dashboard',
-    component: DashboardComponent
+    path: "admin/dashboard",
+    component: DashboardComponent,
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'dashbaord',
-  //   pathMatch: 'full'
-  // },
   {
-    path: '',
-    component: LoginComponent
+    path: "admin/create-rfc",
+    component: CreateRFCComponent,
   },
-  
-  
+  {
+    path: "",
+    component: LoginComponent,
+  },
+
   // {
   //   path: 'admin',
   //   loadChildren: './admin/admin.module#AdminModule',
   //   canActivate: [AuthGuardService]
   // },
-  
 
   // {
   //   path: 'user',
@@ -42,13 +39,13 @@ const routes: Routes = [
 
   // not found page route
   {
-    path: '**',
-    component: NotFoundComponent
-  }
+    path: "**",
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

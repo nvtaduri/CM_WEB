@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
-import * as $ from 'jquery';
-import * as _ from 'underscore';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthService } from "../../auth.service";
+import * as $ from "jquery";
+import * as _ from "underscore";
 
 @Component({
-  selector: 'app-sidemenu',
-  templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.css']
+  selector: "app-sidemenu",
+  templateUrl: "./sidemenu.component.html",
+  styleUrls: ["./sidemenu.component.css"],
 })
 export class SidemenuComponent implements OnInit {
-
   pageType: any;
   currentUrl: any;
   userData: any = [];
@@ -21,12 +20,12 @@ export class SidemenuComponent implements OnInit {
   phoneNumber: any;
   created_on: any;
   // role: any = sessionStorage.getItem('role');
-  role: any = 'admin'
+  role: any = "admin";
   data: any;
 
   public href: string = "";
 
-  public filterQuery = '';
+  public filterQuery = "";
   adminMenu: any = [];
   userMenu: any = [];
   managerMenu: any = [];
@@ -35,14 +34,13 @@ export class SidemenuComponent implements OnInit {
   constructor(
     public _route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
-    // public ubuntu:
-    ) { 
-      this.getAllModules();
-    }
-    
-    ngOnInit() {
-      this.getUserInfo();
+    private authService: AuthService // public ubuntu:
+  ) {
+    this.getAllModules();
+  }
+
+  ngOnInit() {
+    this.getUserInfo();
     // this.currentUrl = window.location.href.split('http://localhost:3200/')[1];
     // console.log("current url is", this.currentUrl);
     this.pageType = this._route.snapshot.url[0].path;
@@ -60,9 +58,8 @@ export class SidemenuComponent implements OnInit {
 
   getAllModules() {
     this.adminMenu = [
-      {name: 'Dashboard', icon: 'fa-dashboard', url: '/admin/dashboard'},
-      {name: 'RFC', icon: 'fa fa-wpforms', url: '/admin/create_RFC'},
-     
+      { name: "Dashboard", icon: "fa-dashboard", url: "/admin/dashboard" },
+      { name: "Create RFC", icon: "fa fa-wpforms", url: "/admin/create-rfc" },
     ];
     // this.userMenu = [
     //   {name: 'Dashboard', icon: 'fa-dashboard', url: '/user/dashboard'},
@@ -87,11 +84,11 @@ export class SidemenuComponent implements OnInit {
 
   getUserInfo() {
     let data = {
-      username: sessionStorage.getItem('id')
-    }
-    this.authService.getUserProfile(data).subscribe(res => {
-      if (res['success'] == true) {
-        this.userData = res['data'];
+      username: sessionStorage.getItem("id"),
+    };
+    this.authService.getUserProfile(data).subscribe((res) => {
+      if (res["success"] == true) {
+        this.userData = res["data"];
         // console.log("user data is:", this.userData);
         this.username = this.userData[0].username;
         this.profileImage = this.userData[0].profilePath;
@@ -103,23 +100,23 @@ export class SidemenuComponent implements OnInit {
       } else {
         console.log("Error while getting user data");
       }
-    })
+    });
   }
 
   backTohome() {
-    this.router.navigate(['/admin/dashboard']);
+    this.router.navigate(["/admin/dashboard"]);
   }
 
   searchModule() {
-    let val = this.filterQuery ? this.filterQuery.toLowerCase() : '';
-    if (val == '' || val == null || val == undefined) {
+    let val = this.filterQuery ? this.filterQuery.toLowerCase() : "";
+    if (val == "" || val == null || val == undefined) {
       this.adminMenu = [];
       this.userMenu = [];
       this.managerMenu = [];
       this.settingsMenu = [];
       this.getAllModules();
     } else {
-      if (this.role == 'admin') {
+      if (this.role == "admin") {
         let arr = _.filter(this.adminMenu, (e: any) => {
           if (e.toLowerCase() == val) {
             return e;
@@ -130,7 +127,7 @@ export class SidemenuComponent implements OnInit {
         });
         this.adminMenu = arr;
         return this.adminMenu;
-      } else if (this.role == 'user') {
+      } else if (this.role == "user") {
         let arr = _.filter(this.userMenu, (e: any) => {
           if (e.toLowerCase() == val) {
             return e;
@@ -141,7 +138,7 @@ export class SidemenuComponent implements OnInit {
         });
         this.userMenu = arr;
         return this.userMenu;
-      } else if (this.role == 'manager') {
+      } else if (this.role == "manager") {
         let arr = _.filter(this.managerMenu, (e: any) => {
           if (e.toLowerCase() == val) {
             return e;

@@ -1,21 +1,13 @@
 <div class="d-flex" id="wrapper">
-
   <app-sidemenu></app-sidemenu>
   <!-- Page Content -->
   <div id="page-content-wrapper">
-
     <app-header></app-header>
     <div class="container">
+      <router-outlet></router-outlet>
 
-
-      <div class="row" *ngIf="hideData">
-        <div class="col-md-12 mt-5">
-          <p class="text-center">No results found...</p>
-        </div>
-      </div>
-      
       <!-- /#page-content-wrapper -->
-    </div>  
+    </div>
   </div>
   <!-- /#wrapper -->
 </div>
