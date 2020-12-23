@@ -1,16 +1,16 @@
 .sidebar-heading {
-  color: #1668af;
-  font-family: 'Nunito', sans-serif;
+  color: #7fcc28;
+  font-family: "Nunito", sans-serif;
   cursor: pointer;
 }
 
-input[type=text] {
+input[type="text"] {
   padding: 5px;
 }
 
 .input-group-text {
   color: white;
-  background-color: #1668af;
+  background-color: #7fcc28;
   width: 100%;
 }
 
@@ -25,24 +25,24 @@ input[type=text] {
 }
 
 a {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 a:hover {
   background-color: #dee2e6;
-  border-left: 5px solid #1668af;
+  border-left: 5px solid #7fcc28;
 }
 
 .menuactive {
-  color: #1668af;
+  color: #7fcc28;
   background-color: #dee2e6;
-  border-left: 5px solid #1668af;
+  border-left: 5px solid #7fcc28;
 }
 
 .btn-back {
   width: 100%;
   color: #c54040;
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
 }
 
 /* .btn-back:hover {
