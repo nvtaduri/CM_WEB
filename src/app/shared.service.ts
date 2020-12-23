@@ -55,25 +55,25 @@ export class SharedService implements OnInit {
     return this.http.get(ApiService.API.GET_DB_CONNECTION);
   }
 
-  getAllTasks() {
-    return this.http.get(ApiService.API.GET_ALL_TASKS);
-  }
+  // getAllTasks() {
+  //   return this.http.get(ApiService.API.GET_ALL_TASKS);
+  // }
 
-  getTasksByFilter(offset: Number, limit: Number) {
-    return this.http.get(ApiService.API.GET_ALL_TASKS + '?offset=' + offset + '&limit=' + limit);
-  }
+  // getTasksByFilter(offset: Number, limit: Number) {
+  //   return this.http.get(ApiService.API.GET_ALL_TASKS + '?offset=' + offset + '&limit=' + limit);
+  // }
 
-  addTask(data: any) {
-    return this.http.post(ApiService.API.ADD_TASK, data);
-  }
+  // addTask(data: any) {
+  //   return this.http.post(ApiService.API.ADD_TASK, data);
+  // }
 
-  updateTask(data) {
-    return this.http.post(ApiService.API.UPDATE_TASK, data);
-  }
+  // updateTask(data) {
+  //   return this.http.post(ApiService.API.UPDATE_TASK, data);
+  // }
 
-  deleteTask(data) {
-    return this.http.post(ApiService.API.DELETE_TASK, data);
-  }
+  // deleteTask(data) {
+  //   return this.http.post(ApiService.API.DELETE_TASK, data);
+  // }
 
   // language translation based on change of state
 
@@ -105,7 +105,7 @@ export class SharedService implements OnInit {
 
   // notifications count based on day occation, new message sent by the authorization user
 
-  getNotificationsCount() {
-    return this.http.get(ApiService.API.GET_NOTIFICATIONS_COUNT);
-  }
+  // getNotificationsCount() {
+  //   return this.http.get(ApiService.API.GET_NOTIFICATIONS_COUNT);
+  // }
 }

@@ -13,15 +13,10 @@ export class SettingsService {
     return this.http.get(ApiService.API.GET_MODULE_CONFIGURATIONS);
   }
 
-  updateConfigurations(data) {
-    return this.http.post(ApiService.API.UPDATE_MODULE_CONFIGURATIONS, data);
+  createNewRfcService(data) {
+    console.log(data,'service info');
+    
+    return this.http.post(ApiService.API.CREATE_NEW_RFC, data);
   }
 
-  getAllUsers() {
-    return this.http.get(ApiService.API.GET_USERS_LIST);
-  }
-
-  updatedUserStatus(data: any) {
-    return this.http.post(ApiService.API.UPDATE_USER_STATUS, data);
-  }
 }

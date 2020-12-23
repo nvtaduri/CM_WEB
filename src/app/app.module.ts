@@ -42,6 +42,7 @@ import { ToastrModule } from "ng6-toastr-notifications";
 import { DatacolumnfilterPipe } from "./datacolumnfilter.pipe";
 // import { SiteInfoComponent } from './site-info/site-info.component';
 import { SettingsService } from "./settings.service";
+import { CreaterfcComponent } from './createrfc/createrfc.component';
 // import { BlockChainComponent } from './block-chain/block-chain.component';
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SettingsService } from "./settings.service";
     LoginComponent,
     NotFoundComponent,
     DatacolumnfilterPipe,
+    CreaterfcComponent,
   ],
   imports: [
     BrowserModule,

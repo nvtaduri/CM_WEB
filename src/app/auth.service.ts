@@ -22,9 +22,9 @@ export class AuthService {
     return this.http.post<any>(ApiService.API.LOGIN, data);
   }
 
-  userSignup(data) {
-    return this.http.post(ApiService.API.SIGNUP, data);
-  }
+  // userSignup(data) {
+  //   return this.http.post(ApiService.API.SIGNUP, data);
+  // }
 
   getUserToken() {
     return localStorage.getItem('token');
@@ -56,40 +56,40 @@ export class AuthService {
       return false;
   }
 
-  validateUser(data) {
-    return this.http.post(ApiService.API.VALIDATE_USER, data);
-  }
+  // validateUser(data) {
+  //   return this.http.post(ApiService.API.VALIDATE_USER, data);
+  // }
 
-  forgotPassword(data) {
-    return this.http.post(ApiService.API.FORGOT_PASSWORD, data);
-  }
+  // forgotPassword(data) {
+  //   return this.http.post(ApiService.API.FORGOT_PASSWORD, data);
+  // }
 
-  uploadSingle(data) {
-    return this.http.post<any>(ApiService.API.UPLOAD_SINGLE_IMAGE, data);
-  }
+  // uploadSingle(data) {
+  //   return this.http.post<any>(ApiService.API.UPLOAD_SINGLE_IMAGE, data);
+  // }
 
-  uploadMultiple(data) {
-    return this.http.post<any>(ApiService.API.UPLOAD_MULTIPLE_IMAGES, data);
-  }
+  // uploadMultiple(data) {
+  //   return this.http.post<any>(ApiService.API.UPLOAD_MULTIPLE_IMAGES, data);
+  // }
 
-  getAllUsers() {
-    return this.http.get(ApiService.API.GET_USERS_LIST);
-  }
+  // getAllUsers() {
+  //   return this.http.get(ApiService.API.GET_USERS_LIST);
+  // }
 
-  getUserProfile(id) {
-    return this.http.post(ApiService.API.GET_USER_PROFILE, id);
-  }
+  // getUserProfile(id) {
+  //   return this.http.post(ApiService.API.GET_USER_PROFILE, id);
+  // }
 
-  getUsersprofiles(id) {
-    return this.http.post(ApiService.API.GET_USERS_PROFILES, id);
-  }
+  // getUsersprofiles(id) {
+  //   return this.http.post(ApiService.API.GET_USERS_PROFILES, id);
+  // }
 
-  addMessage(data) {
-    return this.http.post(ApiService.API.SEND_MESSAGE, data);
-  }
+  // addMessage(data) {
+  //   return this.http.post(ApiService.API.SEND_MESSAGE, data);
+  // }
 
-  userLogout(data) {
-    return this.http.post(ApiService.API.USER_LOGOUT, data);
-  }
+  // userLogout(data) {
+  //   return this.http.post(ApiService.API.USER_LOGOUT, data);
+  // }
 
 }

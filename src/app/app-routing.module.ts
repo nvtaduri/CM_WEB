@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule, ActivatedRoute } from "@angular/router";
-import { CreateRFCComponent } from "./core/admin/create-rfc/create-rfc.component";
+import { CreaterfcComponent } from "./createrfc/createrfc.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 // import { CommonComponent } from './common/common.component';
 import { LoginComponent } from "./login/login.component";
@@ -14,8 +14,12 @@ const routes: Routes = [
   },
   {
     path: "admin/create-rfc",
-    component: CreateRFCComponent,
+    component: CreaterfcComponent,
   },
+  // {
+  //   path: 'admin/create-rfc',
+  //   loadChildren: () => import('./core/admin/admin.module').then(m => m.AdminModule)
+  // },
   {
     path: "",
     component: LoginComponent,

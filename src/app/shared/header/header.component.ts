@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     });
     // console.log("curret role is:", this.role);
 
-    this.getUserInfo();
+    //this.getUserInfo();
 
     this.currentUrl = this.route.snapshot.url[0].path;
     // console.log("current url is", this.currentUrl);
@@ -91,55 +91,55 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  logOut() {
-    localStorage.clear();
-    sessionStorage.clear();
-    console.log(this.userid);
-    this.authService.userLogout({ user_id: this.userid }).subscribe(res => {
-      console.log('User is logged out');
-      this.router.navigate(['']);
-    })
-  }
+  // logOut() {
+  //   localStorage.clear();
+  //   sessionStorage.clear();
+  //   console.log(this.userid);
+  //   this.authService.userLogout({ user_id: this.userid }).subscribe(res => {
+  //     console.log('User is logged out');
+  //     this.router.navigate(['']);
+  //   })
+  // }
 
-  getUserInfo() {
-    let data = {
-      username: sessionStorage.getItem('id')
-    }
-    this.authService.getUserProfile(data).subscribe(res => {
-      if (res['success'] == true) {
-        this.userData = res['data'];
-        console.log("user data is:", this.userData);
-        let role = this.userData[0].role;
-        for (let i = 0; i < this.userData.length; i++) {
-          this.roles.push(this.userData[i].assigned_roles.split(','));
-        }
-        for (let i = 0; i < this.roles[0].length; i++) {
-          this.rolesArr.push(this.roles[0][i]);
-        }
-        this.rolesArr.push(role);
-        // console.log("roles is:", this.rolesArr);
-      } else {
-        console.log("Error while getting user data");
-      }
-    })
-  }
+  // getUserInfo() {
+  //   let data = {
+  //     username: sessionStorage.getItem('id')
+  //   }
+  //   this.authService.getUserProfile(data).subscribe(res => {
+  //     if (res['success'] == true) {
+  //       this.userData = res['data'];
+  //       console.log("user data is:", this.userData);
+  //       let role = this.userData[0].role;
+  //       for (let i = 0; i < this.userData.length; i++) {
+  //         this.roles.push(this.userData[i].assigned_roles.split(','));
+  //       }
+  //       for (let i = 0; i < this.roles[0].length; i++) {
+  //         this.rolesArr.push(this.roles[0][i]);
+  //       }
+  //       this.rolesArr.push(role);
+  //       // console.log("roles is:", this.rolesArr);
+  //     } else {
+  //       console.log("Error while getting user data");
+  //     }
+  //   })
+  // }
 
-  changeRole(role: any) {
-    console.log("get role is:", role);
-    sessionStorage.setItem('role', role);
-    this.router.navigate([`${role}/dashboard`]);
-    // window.location.reload();
-    // this.route.navigate(['/dashboard', { data: role }]);
-  }
+  // changeRole(role: any) {
+  //   console.log("get role is:", role);
+  //   sessionStorage.setItem('role', role);
+  //   this.router.navigate([`${role}/dashboard`]);
+  //   // window.location.reload();
+  //   // this.route.navigate(['/dashboard', { data: role }]);
+  // }
 
-  notifyList() {
-    this.hiddenNotify = true;
-    $('data')
-  }
+  // notifyList() {
+  //   this.hiddenNotify = true;
+  //   $('data')
+  // }
 
-  viewNotifications() {
-    this.router.navigate(['/notifications']);
-  }
+  // viewNotifications() {
+  //   this.router.navigate(['/notifications']);
+  // }
 
   // ngOnDestroy() {
   //   this.subscription.unsubscribe();

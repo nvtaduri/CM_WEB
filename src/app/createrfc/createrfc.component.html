@@ -1,0 +1,104 @@
+<div class="d-flex" id="wrapper">
+    <app-sidemenu></app-sidemenu>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <app-header></app-header>
+        <div class="container">
+            <h1>RFC Template</h1>
+            <form [formGroup]="rfcreateForm">
+                <div class="row">
+                    <div class="col-4">
+                        <label>
+                            Change Request Number<br>
+                            <input type="text" placeholder="Placeholder" formControlName="request_no">
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Opened By<br>
+                            <input type="text" placeholder="person" formControlName="opened_by">
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Opened On<br>
+                            <input type="datetime-local" formControlName="opened_on">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>
+                            Status<br>
+                            <select type="text" class="l" id="" formControlName="status">
+                                <option selected>Choose...</option>
+                                <option>New</option>
+                                <option>Assigned</option>
+                                <option>In-Progress</option>
+                                <option>On Hold</option>
+                                <option>Closed</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Assignment Group<br>
+                            <select type="text" class="l" id="" formControlName="assignement_group">
+                                <option selected>Choose...</option>
+                                <option>Users</option>
+                                <option>Customers</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Priority<br>
+                            <select type="text" class="l" id="" formControlName="priority">
+                                <option selected>Choose...</option>
+                                <option>Critical</option>
+                                <option>High</option>
+                                <option>Moderate</option>
+                                <option>Low</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>
+                            Change Type<br>
+                            <select type="text" class="l" id="" formControlName="change_type">
+                                <option selected>Choose...</option>
+                                <option>Standard</option>
+                                <option>Emergency</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Short Description<br>
+                            <textarea rows="5" cols="40" formControlName="short_desc" placeholder="Your explanation for this Change"></textarea>
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            Assigned to<br>
+                            <select type="text" class="l" id="" formControlName="assigned_to">
+                                <option selected>Choose...</option>
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+        </form>
+        <div class="float-right"> 
+            <!-- <button type="button" class="cancelbtn mr-2">Cancel</button> -->
+            <button class="btn-primary" type="submit"  (click)="onSubmit()" [disabled]="!rfcreateForm.valid">Submit</button>
+            <!-- <button type="submit" class="signupbtn" (click)="userSignup()">Submit</button> -->
+        </div>
+    </div>
+
+    <!-- /#wrapper -->
+</div>
