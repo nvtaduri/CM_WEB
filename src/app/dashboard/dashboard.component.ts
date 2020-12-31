@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   modules: any = [];
   hideData: boolean = false;
   data: any = [];
+  postInfo: Object;
 
   constructor(
     private route: Router,
@@ -36,8 +37,8 @@ export class DashboardComponent implements OnInit {
   //   this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
   // }
 getPostsCon(){
-  alert('dsfd');
   this.authService.getPosts().subscribe(res => {
+    this.postInfo = res;
     console.log(res,'resssssssssss');
   })
 }

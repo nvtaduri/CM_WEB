@@ -8,30 +8,27 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Person</th>
+            <th scope="col">Assigned</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Description</th>
+            <th scope="col">Created</th>
+
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          <tr *ngFor="let item of postInfo; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{item.person}}</td>
+            <td>{{item.assigned}}</td>
+            <td>{{item.priority}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.created}}</td>
+          </tr>          
         </tbody>
       </table>
     </div>
