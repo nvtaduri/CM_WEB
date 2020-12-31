@@ -21,30 +21,30 @@ export class SharedService implements OnInit {
     private http: HttpClient,
     public settingsService: SettingsService
     ) { 
-      this.getModulesConfig('');
+      //this.getModulesConfig('');
     }
     
   ngOnInit () { }
 
-  getModulesConfig(moduleName: any) {
-    this.settingsService.getConfigurations().subscribe(res => {
-      if (res['success'] == true) {
-        // console.log("Module configurations", res['data']);
-        this.modulesConfig = res['data'];
-        for (let i = 0; i < this.modulesConfig.length; i++) {
-          if (this.modulesConfig[i].config_name == moduleName && this.modulesConfig[i].viewConfig == 1) {
-            // console.log("entered if");
-            this.viewEnable = true;
-          } else {
-            // console.log("entered else");
-            this.viewEnable = false;
-          }
-        }
-      } else if (res['success'] == false) {
-        console.log("Unable to get module configurations");
-      }
-    });
-  }
+  // getModulesConfig(moduleName: any) {
+  //   this.settingsService.getConfigurations().subscribe(res => {
+  //     if (res['success'] == true) {
+  //       // console.log("Module configurations", res['data']);
+  //       this.modulesConfig = res['data'];
+  //       for (let i = 0; i < this.modulesConfig.length; i++) {
+  //         if (this.modulesConfig[i].config_name == moduleName && this.modulesConfig[i].viewConfig == 1) {
+  //           // console.log("entered if");
+  //           this.viewEnable = true;
+  //         } else {
+  //           // console.log("entered else");
+  //           this.viewEnable = false;
+  //         }
+  //       }
+  //     } else if (res['success'] == false) {
+  //       console.log("Unable to get module configurations");
+  //     }
+  //   });
+  // }
 
   addDatatoDowload(data) {
     console.log(data);

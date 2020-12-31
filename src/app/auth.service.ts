@@ -17,6 +17,9 @@ export class AuthService {
     return this.http.get(ApiService.API.GET_API_WORK);
   }
 
+  getPosts() {
+    return this.http.get(ApiService.API.POSTS);
+  }
   userLogin(data) {
     console.log(data);
     return this.http.post<any>(ApiService.API.LOGIN, data);

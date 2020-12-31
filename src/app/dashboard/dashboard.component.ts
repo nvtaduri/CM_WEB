@@ -28,36 +28,42 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getModules();
+   // this.getModules();
+    this.getPostsCon();
   }
 
-  getModules() {
-    this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
-  }
+  // getModules() {
+  //   this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
+  // }
+getPostsCon(){
+  alert('dsfd');
+  this.authService.getPosts().subscribe(res => {
+    console.log(res,'resssssssssss');
+  })
+}
+  // searchData() {
+  //   console.log(this.searchItem);
+  //   let val = this.searchItem.toLowerCase();
+  //   if (val == '' || val == null || val == undefined) {
+  //     this.hideData = true;
+  //     this.modules = [];
+  //     return;
+  //   } else {
+  //     this.hideData = false;
+  //     this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
+  //     let arr = _.filter(this.modules, (e: any) => {
+  //       if (e.toLowerCase() == val) {
+  //         return e;
+  //       } else if (e.toLowerCase().includes(val)) {
+  //         return e;
+  //       }
+  //     });
+  //     this.modules = arr;
+  //     return this.modules;
+  //   }
+  // }
 
-  searchData() {
-    console.log(this.searchItem);
-    let val = this.searchItem.toLowerCase();
-    if (val == '' || val == null || val == undefined) {
-      this.hideData = true;
-      this.modules = [];
-      return;
-    } else {
-      this.hideData = false;
-      this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
-      let arr = _.filter(this.modules, (e: any) => {
-        if (e.toLowerCase() == val) {
-          return e;
-        } else if (e.toLowerCase().includes(val)) {
-          return e;
-        }
-      });
-      this.modules = arr;
-      return this.modules;
-    }
-  }
-
-  onCompleted() {
-    this.route.navigate(['/your route', { data: 'completed' }]);
-  }
+  // onCompleted() {
+  //   this.route.navigate(['/your route', { data: 'completed' }]);
+  // }
 }

@@ -7,12 +7,13 @@ export class ApiService {
     GET_DB_CONNECTION: environment.apiUrl + '/dbconnection',
     GET_API_WORK: environment.apiUrl + '/server',
 // CONFIGURATION API URL's
-GET_MODULE_CONFIGURATIONS: environment.apiUrl + '/getConfigurations',
+// GET_MODULE_CONFIGURATIONS: environment.apiUrl + '/getConfigurations',
     // DOWNLOAD A FILE
     ADD_DATA_TO_DOWNLOAD: environment.apiUrl + '/download',
     CREATE_NEW_RFC:environment.apiUrl + '/create',
     // LOGIN and SIGNUP API URL's
     LOGIN: environment.apiUrl + '/login',
+    POSTS: environment.apiUrl + '/posts',
     // SIGNUP: environment.apiUrl + '/signup',
     // VALID_LOGIN: environment.apiUrl + '/validlogin',
     // VALIDATE_USER: environment.apiUrl + '/validateuser',

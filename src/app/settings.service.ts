@@ -9,9 +9,9 @@ export class SettingsService {
 
   constructor(private http: HttpClient) { }
 
-  getConfigurations() {
-    return this.http.get(ApiService.API.GET_MODULE_CONFIGURATIONS);
-  }
+  // getConfigurations() {
+  //   return this.http.get(ApiService.API.GET_MODULE_CONFIGURATIONS);
+  // }
 
   createNewRfcService(data) {
     console.log(data,'service info');
