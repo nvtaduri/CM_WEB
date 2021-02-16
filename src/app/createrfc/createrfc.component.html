@@ -4,101 +4,463 @@
     <div id="page-content-wrapper">
         <app-header></app-header>
         <div class="container">
-            <h1>RFC Template</h1>
-            <form [formGroup]="rfcreateForm">
-                <div class="row">
-                    <div class="col-4">
-                        <label>
-                            Change Request Number<br>
-                            <input type="text" placeholder="Placeholder" formControlName="request_no">
-                        </label>
+
+            <div>
+                <button (click)="showPage(1)">Create Event</button>
+                <button (click)="showPage(3)">View All Events</button>
+            </div><br>
+            <div *ngIf="createPage && !editPage && !listPage">
+                <h4>Create WhiteBoard Event</h4>
+                <form [formGroup]="rfcreateForm">
+                    <!-- <div class="container-fluid"> -->
+                    <div class="form-row">
+                        <div class="form-group col-3 mb-0">
+                            <label>
+                                Status<br>
+                                <select type="text" class="l" id="" formControlName="status">
+                                    <option selected>Choose...</option>
+                                    <option>Staged</option>
+                                    <option>Active</option>
+                                    <option>In Progress</option>
+                                    <option>Complete</option>
+                                    <option>Failed</option>
+                                    <option>Cancelled</option>
+                                </select>
+                            </label>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <label>
-                            Opened By<br>
-                            <input type="text" placeholder="person" formControlName="opened_by">
-                        </label>
+                    <div class="form-row">
+                        <div class="form-group col-6 mb-0">
+                            <label>
+                                Short Description<br>
+                                <textarea rows="5" cols="40" formControlName="description"
+                                    placeholder="Your explanation for this Change"></textarea>
+                            </label>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <label>
-                            Opened On<br>
-                            <input type="datetime-local" formControlName="opened_on">
-                        </label>
+                    <div class="form-row">
+                        <div class="form-group col-3 mb-0">
+                            <label>
+                                Schedule Date<br>
+                                <input type="datetime-local" formControlName="schedule">
+                            </label>
+                        </div>
+                        <div class="form-group col-3 mb-0">
+                            <label>
+                                Duration<br>
+                                <input type="time" formControlName="duration_minutues">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                Latitude:<br>
+                                <input type="text" formControlName="location_latitude">
+                            </label>
+                        </div>
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                Longitude:<br>
+                                <input type="text" formControlName="location_longitude">
+                            </label>
+                        </div>
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                Address:<br>
+                                <input type="text" formControlName="location_address">
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                State<br>
+                                <select type="text" class="l" id="" formControlName="state">
+                                    <option selected>Choose...</option>
+                                    <option>Texas</option>
+                                    <option>California</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                City<br>
+                                <select type="text" class="l" id="" formControlName="city">
+                                    <option selected>Choose...</option>
+                                    <option>San Francisco
+                                    </option>
+                                    <option>Fresno
+                                    </option>
+                                    <option>Sacramento
+                                    </option>
+                                    <option>Long Beach
+                                    </option>
+                                    <option>Oakland
+                                    </option>
+                                    <option>Bakersfield
+                                    </option>
+                                    <option>Anaheim
+                                    </option>
+                                    <option>Santa Ana
+                                    </option>
+                                    <option>Riverside
+                                    </option>
+                                    <option>Stockton
+                                    </option>
+                                    <option>Chula Vista
+                                    </option>
+                                    <option>Irvine
+                                    </option>
+                                    <option>Fremont
+                                    </option>
+                                    <option>San Bernardino
+                                    </option>
+                                    <option>Modesto
+                                    </option>
+                                    <option>Fontana
+                                    </option>
+                                    <option>Oxnard
+                                    </option>
+                                    <option>Moreno Valley
+                                    </option>
+                                    <option>Huntington Beach
+                                    </option>
+                                    <option>Glendale
+                                    </option>
+                                    <option>Santa Clarita
+                                    </option>
+                                    <option>Garden Grove
+                                    </option>
+                                    <option>Oceanside
+                                    </option>
+                                    <option>Rancho Cucamonga
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                Contact Name:<br>
+                                <input type="text" formControlName="contact_name">
+                            </label>
+                        </div>
+                        <div class="form-group col-2 mb-0">
+                            <label>
+                                Contact Number:<br>
+                                <input type="text" formControlName="contact_phone_number">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class=" form-group col-6">
+                            <label>
+                                Notes:<br><textarea rows="5" cols="40" formControlName="notes"
+                                    placeholder="add short notes if any"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit" [disabled]="!rfcreateForm.valid"
+                            (click)="onSubmit()">Create
+                            Event</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div *ngIf="editPage && !createPage && !listPage"><br>
+                <h4>you are currently editing a whiteboard</h4>
+                <form [formGroup]="rfcreateForm">
+                    <!-- <div class="container-fluid"> -->
+                    <div class="row">
+                        <div class="col-3">
+                            <label>
+                                Status<br>
+                                <select type="text" class="l" id="" formControlName="status"
+                                    [(ngModel)]="eventInfo.status" value="eventInfo.status">
+                                    <!-- <option selected>Choose...</option> -->
+                                    <option>Staged</option>
+                                    <option>Active</option>
+                                    <option>In Progress</option>
+                                    <option>Complete</option>
+                                    <option>Failed</option>
+                                    <option>Cancelled</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>
+                                Short Description<br>
+                                <textarea rows="5" cols="40" formControlName="description"
+                                    [(ngModel)]="eventInfo.description" value="eventInfo.description"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label>
+                                Schedule Date<br>
+                                <input type="datetime-local" formControlName="schedule" [(ngModel)]="eventInfo.schedule"
+                                    value="eventInfo.schedule">
+                            </label>
+                        </div>
+                        <div class="col-3">
+                            <label>
+                                Duration<br>
+                                <input type="time" formControlName="duration_minutues"
+                                    [(ngModel)]="eventInfo.duration_minutues" value="eventInfo.duration_minutues">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+                    <div class="row">
+                        <div class="col-2">
+                            <label>
+                                Latitude:<br>
+                                <input type="text" formControlName="location_latitude"
+                                    [(ngModel)]="eventInfo.location_latitude" value="eventInfo.location_latitude">
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label>
+                                Longitude:<br>
+                                <input type="text" formControlName="location_longitude"
+                                    [(ngModel)]="eventInfo.location_longitude" value="eventInfo.location_longitude">
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label>
+                                Address:<br>
+                                <input type="text" formControlName="location_address" class="form-control"
+                                    [(ngModel)]="eventInfo.location_address" value="eventInfo.location_address">
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <label>
+                                State<br>
+                                <select type="text" class="l" id="" formControlName="state"
+                                    [(ngModel)]="eventInfo.state" value="eventInfo.state">
+                                    <option selected>Choose...</option>
+                                    <option>Texas</option>
+                                    <option>California</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="col-2">
+                            <label>
+                                City<br>
+                                <select type="text" class="l" id="" formControlName="city" [(ngModel)]="eventInfo.city"
+                                    value="eventInfo.city">
+                                    <!-- <option selected>Choose...</option> -->
+                                    <option>San Francisco
+                                    </option>
+                                    <option>Fresno
+                                    </option>
+                                    <option>Sacramento
+                                    </option>
+                                    <option>Long Beach
+                                    </option>
+                                    <option>Oakland
+                                    </option>
+                                    <option>Bakersfield
+                                    </option>
+                                    <option>Anaheim
+                                    </option>
+                                    <option>Santa Ana
+                                    </option>
+                                    <option>Riverside
+                                    </option>
+                                    <option>Stockton
+                                    </option>
+                                    <option>Chula Vista
+                                    </option>
+                                    <option>Irvine
+                                    </option>
+                                    <option>Fremont
+                                    </option>
+                                    <option>San Bernardino
+                                    </option>
+                                    <option>Modesto
+                                    </option>
+                                    <option>Fontana
+                                    </option>
+                                    <option>Oxnard
+                                    </option>
+                                    <option>Moreno Valley
+                                    </option>
+                                    <option>Huntington Beach
+                                    </option>
+                                    <option>Glendale
+                                    </option>
+                                    <option>Santa Clarita
+                                    </option>
+                                    <option>Garden Grove
+                                    </option>
+                                    <option>Oceanside
+                                    </option>
+                                    <option>Rancho Cucamonga
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label>
+                                Contact Name:<br>
+                                <input type="text" formControlName="contact_name" [(ngModel)]="eventInfo.contact_name"
+                                    value="eventInfo.contact_name">
+                            </label>
+                        </div>
+
+                        <div class="col-2">
+                            <label>
+                                Contact Number:<br>
+                                <input type="text" formControlName="contact_phone_number"
+                                    [(ngModel)]="eventInfo.contact_phone_number" value="eventInfo.contact_phone_number">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>
+                                Notes:<br><textarea rows="5" cols="40" formControlName="notes"
+                                    [(ngModel)]="eventInfo.notes" value="eventInfo.notes"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                <div class="float-left">
+                    <button class="btn-primary" type="submit" (click)="submitEditEvent(eventInfo.id)">Submit</button>
+                </div>
+            </div>
+
+            <div *ngIf="listPage && !editPage && !createPage"><br>
+                <h4>List whiteboard</h4>
+                <div [formGroup]="filterForm">
+                    <div class="form-row">
+                        <input type="checkbox" id="stage" value="stage" name="stage" formControlName="stage"
+                            [(ngModel)]="stage" (click)="getByStatus('Staged')">
+                        <label for=""> Staged</label>
+                        <input type="checkbox" id="active" name="active" value="active" (click)="getByStatus('Active')">
+                        <label for=""> Active</label>
+                        <input type="checkbox" id="inProgress" name="inProgress" value="inProgress"
+                            (click)="getByStatus('inProgress')">
+                        <label for=""> In-Progress</label>
+                        <input type="checkbox" id="complete" name="complete" value="complete"
+                            (click)="getByStatus('Complete')">
+                        <label for=""> Complete</label>
+                        <input type="checkbox" id="failed" name="failed" value="failed" (click)="getByStatus('Failed')">
+                        <label for=""> Failed</label>
+                        <input type="checkbox" id="canceled" name="canceled" value="canceled"
+                            (click)="getByStatus('Canceled')">
+                        <label for=""> Canceled</label>
+                    </div>
+                    <div class="form-row col-12">
+                        <form [formGroup]="filterForm">
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label>
+                                        Start Date
+                                        <input type="datetime-local" formControlName="fromrange"
+                                            [(ngModel)]="start_date">
+                                    </label>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label>Through
+                                        <input type="datetime-local" formControlName="through" [(ngModel)]="end_date">
+                                    </label>
+                                </div>
+                                <div class="from-group col-3">
+                                    <label>&nbsp;<br>
+                                        <button class="btn-primary mt-10" type="submit"
+                                            (click)="getByRange(start_date, end_date)">Get
+                                            List</button>
+                                    </label>
+                                </div>
+                            </div>
+                            <label>
+                                By Id:<br>
+                                <input type="text" formControlName="listByID" [(ngModel)]="eventId">
+                                <button class="btn-primary" type="submit" (click)="getById(eventId)">Get List</button>
+                            </label>
+                        </form>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label>
-                            Status<br>
-                            <select type="text" class="l" id="" formControlName="status">
-                                <option selected>Choose...</option>
-                                <option>New</option>
-                                <option>Assigned</option>
-                                <option>In-Progress</option>
-                                <option>On Hold</option>
-                                <option>Closed</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="col-4">
-                        <label>
-                            Assignment Group<br>
-                            <select type="text" class="l" id="" formControlName="assignement_group">
-                                <option selected>Choose...</option>
-                                <option>Users</option>
-                                <option>Customers</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="col-4">
-                        <label>
-                            Priority<br>
-                            <select type="text" class="l" id="" formControlName="priority">
-                                <option selected>Choose...</option>
-                                <option>Critical</option>
-                                <option>High</option>
-                                <option>Moderate</option>
-                                <option>Low</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label>
-                            Change Type<br>
-                            <select type="text" class="l" id="" formControlName="change_type">
-                                <option selected>Choose...</option>
-                                <option>Standard</option>
-                                <option>Emergency</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="col-4">
-                        <label>
-                            Short Description<br>
-                            <textarea rows="5" cols="40" formControlName="short_desc" placeholder="Your explanation for this Change"></textarea>
-                        </label>
-                    </div>
-                    <div class="col-4">
-                        <label>
-                            Assigned to<br>
-                            <select type="text" class="l" id="" formControlName="assigned_to">
-                                <option selected>Choose...</option>
-                                <option>option 1</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-        </form>
-        <div class="float-right"> 
-            <!-- <button type="button" class="cancelbtn mr-2">Cancel</button> -->
-            <button class="btn-primary" type="submit"  (click)="onSubmit()" [disabled]="!rfcreateForm.valid">Submit</button>
-            <!-- <button type="submit" class="signupbtn" (click)="userSignup()">Submit</button> -->
+                <table style="width:100%" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Status</th>
+                            <th>Task</th>
+                            <th>Location</th>
+                            <th>Date/Time</th>
+                            <th>Contact</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of eventlist">
+                            <td>{{event.id}}</td>
+                            <td>{{event.status}}</td>
+                            <td>{{event.task}}</td>
+                            <td>{{event.location_address}}</td>
+                            <td>{{event.schedule}}</td>
+                            <td>{{event.contact_name}}</td>
+                            <td>{{event.description}}</td>
+                            <td><i class="fa fa-pencil" (click)="showPage(2);getById(event.id)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <div class="card">
+                    <p-table [value]="eventlist" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [rowsPerPageOptions]="[10,25,50]">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>ID</th>
+                                <th>Status</th>
+                                <th>Task</th>
+                                <th>Location</th>
+                                <th>Date/Time</th>
+                                <th>Contact</th>
+                                <th>Description</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-event>
+                            <tr>
+                                <td>{{event.id}}</td>
+                                <td>{{event.status}}</td>
+                                <td>{{event.task}}</td>
+                                <td>{{event.location_address}}</td>
+                                <td>{{event.schedule}}</td>
+                                <td>{{event.contact_name}}</td>
+                                <td>{{event.description}}</td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="paginatorleft">
+                            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                        </ng-template>
+                        <ng-template pTemplate="paginatorright">
+                            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                        </ng-template>
+                    </p-table>
+                </div> -->
+            </div>
         </div>
     </div>
-
-    <!-- /#wrapper -->
 </div>

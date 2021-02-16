@@ -38,11 +38,12 @@ import { HotTableModule } from "@handsontable/angular";
 // import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 // import { CompaniesComponent } from './companies/companies.component';
 // import { TasksComponent } from './tasks/tasks.component';
+import { TableModule } from "primeng/table";
 import { ToastrModule } from "ng6-toastr-notifications";
 import { DatacolumnfilterPipe } from "./datacolumnfilter.pipe";
 // import { SiteInfoComponent } from './site-info/site-info.component';
 import { SettingsService } from "./settings.service";
-import { CreaterfcComponent } from './createrfc/createrfc.component';
+import { CreaterfcComponent } from "./createrfc/createrfc.component";
 // import { BlockChainComponent } from './block-chain/block-chain.component';
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { CreaterfcComponent } from './createrfc/createrfc.component';
     FileUploadModule,
     HotTableModule.forRoot(),
     ToastrModule.forRoot(),
+    TableModule,
   ],
   providers: [
     SharedService,

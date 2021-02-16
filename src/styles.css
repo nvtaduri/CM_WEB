@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~handsontable/dist/handsontable.full.css';
+@import "~handsontable/dist/handsontable.full.css";
 
-/* html, body {
-    background-color: #dee2e6;
-} */
+body {
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -23,4 +25,41 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  padding: 0.2em 0.5em !important;
+}
+
+label {
+  font-weight: normal;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px !important;
+}
+label {
+  margin-right: 5px !important;
+}
+
+.btn-primary {
+  margin: 0px 10px !important;
+}
+.mt-10 {
+  margin-top: 10px !important;
+}
+.mgt-50 {
+  margin-top: 100px;
 }

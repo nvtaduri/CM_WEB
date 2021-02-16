@@ -17,9 +17,11 @@ const routes: Routes = [
     component: CreaterfcComponent,
   },
   // {
-  //   path: 'admin/create-rfc',
-  //   loadChildren: () => import('./core/admin/admin.module').then(m => m.AdminModule)
-  // },
+  {
+    path: "user",
+    loadChildren: () =>
+      import(`./user/user.module`).then((module) => module.UserModule),
+  },
   {
     path: "",
     component: LoginComponent,

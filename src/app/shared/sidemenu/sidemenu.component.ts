@@ -59,27 +59,9 @@ export class SidemenuComponent implements OnInit {
   getAllModules() {
     this.adminMenu = [
       { name: "Dashboard", icon: "fa-dashboard", url: "/admin/dashboard" },
-      { name: "Create RFC", icon: "fa fa-wpforms", url: "/admin/create-rfc" },
+      { name: "WhiteBoard", icon: "fa fa-wpforms", url: "/admin/create-rfc" },
+      //{ name: "User", icon: "fa fa-user", url: "/user/user" },
     ];
-    // this.userMenu = [
-    //   {name: 'Dashboard', icon: 'fa-dashboard', url: '/user/dashboard'},
-    //   {name: 'Services', icon: 'fa-gear', url: '/user/services'},
-    //   {name: 'Chat', icon: 'fa-wpforms', url: '/user/chat'},
-    //   {name: 'Activity', icon: 'fa-table', url: '/user/activities'},
-    //   {name: '', icon: '', url: '/user/profile'}
-    // ];
-    // this.managerMenu = [
-    //   {name: 'Dashboard', icon: 'fa-dashboard', url: '/manager/dashboard'},
-    //   {name: 'Attandance', icon: 'fa-gear', url: '/manager/attandance'},
-    //   {name: 'Leaves', icon: 'fa-wpforms', url: '/manager/leaves'},
-    //   {name: 'Accounts', icon: 'fa-table', url: '/manager/accounts'},
-    //   {name: '', icon: '', url: '/manager/profile'}
-    // ];
-    // this.settingsMenu = [
-    //   {name: 'Site Info', icon: 'fa-dashboard', url: '/settings/siteinfo'},
-    //   {name: 'Role Privileges', icon: 'fa-users', url: '/settings/roleprivileges'},
-    //   {name: 'Block Chain', icon: 'fa-cube', url: '/settings/blockchain'}
-    // ];
   }
 
   // getUserInfo() {
